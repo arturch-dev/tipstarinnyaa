@@ -468,7 +468,7 @@ function submitPopup() {
   .then(response => response.json())
   .then(data => {
     // РЕДИРЕКТ НА СТОРІНКУ ПОДЯКИ
-    window.location.href = 'thanks.html';
+    window.location.href = 'thanks.html?result=' + typeKey;
   })
   .catch(error => {
     console.error('Error:', error);
