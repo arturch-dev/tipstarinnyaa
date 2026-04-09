@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дякую! — Svitlana Tape</title>
+
+<!-- Performance Optimization -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1548773689373078'); // ВАШ ID ПІКСЕЛЯ
+fbq('track', 'PageView');
+fbq('track', 'Lead'); // ТУТ ВІДБИВАЄТЬСЯ ЛІД ПІСЛЯ УСПІШНОЇ РЕЄСТРАЦІЇ
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1548773689373078&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+:root {
+  --cream: #FDF6F0; --cream-dark: #F5EBE0; --rose: #C2847A; --rose-deep: #A8655A;
+  --rose-light: rgba(194,132,122,0.12); --terracotta: #B56B5D; --text-dark: #3D2C2C;
+  --text-body: #5C4A4A; --text-muted: #9B8585; --card-bg: #FFFFFF;
+  --card-border: rgba(194,132,122,0.18); --radius: 16px;
+  --shadow-soft: 0 4px 24px rgba(61,44,44,0.06);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+  font-family: 'Nunito Sans', sans-serif; 
+  background: var(--cream); 
+  color: var(--text-body); 
+  min-height: 100dvh; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 20px;
+}
+body::before { 
+  content: ''; position: fixed; top: -30%; right: -20%; width: 80%; height: 80%; 
+  background: radial-gradient(ellipse, rgba(194,132,122,0.08) 0%, transparent 70%); 
+  pointer-events: none; z-index: 0; 
+}
+
+.thank-you-card {
+  position: relative; z-index: 1;
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 24px;
+  padding: 48px 32px;
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 16px 48px rgba(61,44,44,0.08);
+  animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.icon-wrapper {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose-light), rgba(194,132,122,0.05));
+  border: 1.5px solid var(--card-border);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 24px rgba(194,132,122,0.1);
+  color: var(--rose-deep);
+}
+.icon-wrapper svg {
+  width: 40px; height: 40px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.desc {
+  font-size: 15px; line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.bot-cta-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 12px; padding: 18px 36px;
+  background: var(--rose-deep); color: #fff; border: none; border-radius: 50px;
+  font-size: 16px; font-weight: 700; font-family: 'Nunito Sans', sans-serif;
+  text-transform: uppercase; letter-spacing: 1px; cursor: pointer; text-decoration: none;
+  transition: all 0.3s; box-shadow: 0 8px 32px rgba(168,101,90,0.3);
+  width: 100%;
+}
+.bot-cta-btn:hover {
+  transform: translateY(-2px); box-shadow: 0 12px 40px rgba(168,101,90,0.4); background: var(--terracotta);
+}
+
+.note {
+  font-size: 12px; color: var(--text-muted); margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+  <div class="thank-you-card">
+    <div class="icon-wrapper">
+      <svg viewBox="0 0 24 24">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+    
+    <h1 class="title">Дякую! Твій запит отримано</h1>
+    <p class="desc">Я вже готую твій персональний розбір.<br>Перейди у мій Telegram-бот та натисни <b>«Розпочати»</b>, щоб отримати план та відеоурок.</p>
+    
+    <!-- ВСТАВТЕ СЮДИ ПОСИЛАННЯ НА ВАШОГО БОТА -->
+    <a href="YOUR_BOT_LINK" class="bot-cta-btn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+      Перейти в Telegram-бот
+    </a>
+    
+    <p class="note">Натисни на кнопку вище, щоб не загубити результат ☝️</p>
+  </div>
+
+</body>
+</html>
