@@ -131,8 +131,8 @@ body::before {
     <h1 class="title">Дякую! Твій запит отримано</h1>
     <p class="desc">Я вже готую твій персональний розбір.<br>Перейди у мій Telegram-бот та натисни <b>«Розпочати»</b>, щоб отримати план та відеоурок.</p>
     
-    <!-- ВСТАВТЕ СЮДИ ПОСИЛАННЯ НА ВАШОГО БОТА -->
-    <a href="YOUR_BOT_LINK" class="bot-cta-btn">
+    <!-- ДИНАМІЧНА КНОПКА (Посилання генерується в скрипті нижче) -->
+    <a href="#" id="tgBotLink" class="bot-cta-btn">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="22" y1="2" x2="11" y2="13"></line>
         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -142,6 +142,21 @@ body::before {
     
     <p class="note">Натисни на кнопку вище, щоб не загубити результат ☝️</p>
   </div>
+
+  <!-- СКРИПТ ДЛЯ ПЕРЕДАЧІ РЕЗУЛЬТАТУ В БОТ -->
+  <script>
+    // 1. Беремо результат з посилання (наприклад: thanks.html?result=deform)
+    const urlParams = new URLSearchParams(window.location.search);
+    const quizResult = urlParams.get('result') || 'default';
+    
+    // 2. ВСТАВ ЮЗЕРНЕЙМ СВОГО БОТА ТУТ (тільки назва, без @ і без https://t.me/)
+    // Наприклад, якщо посилання t.me/svitlanatape_bot, то пиши: "svitlanatape_bot"
+    const botUsername = "svitlana_tape_bot"; 
+    
+    // 3. Генеруємо діплінк і підставляємо в кнопку
+    const tgLink = `https://t.me/${botUsername}?start=${quizResult}`;
+    document.getElementById('tgBotLink').href = tgLink;
+  </script>
 
 </body>
 </html>
