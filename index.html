@@ -465,3 +465,20 @@ function submitPopup() {
     method: 'POST',
     body: JSON.stringify(formData)
   })
+  .then(response => response.json())
+  .then(data => {
+    // РЕДИРЕКТ НА СТОРІНКУ ПОДЯКИ
+    window.location.href = 'thanks.html';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Сталася помилка при відправці. Спробуйте ще раз.');
+    btn.disabled = false;
+    btn.textContent = 'Отримати розбір';
+  });
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+</script>
+</body>
+</html>
