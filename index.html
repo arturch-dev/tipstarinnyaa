@@ -4,105 +4,58 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Визнач свій тип старіння — Svitlana Tape</title>
+
+<!-- Performance Optimization -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Intl-Tel-Input CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID'); // ВСТАВТЕ ВАШ ID ПІКСЕЛЯ
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
 <style>
 :root {
-  --cream: #FDF6F0;
-  --cream-dark: #F5EBE0;
-  --rose: #C2847A;
-  --rose-deep: #A8655A;
-  --rose-light: rgba(194,132,122,0.12);
-  --terracotta: #B56B5D;
-  --text-dark: #3D2C2C;
-  --text-body: #5C4A4A;
-  --text-muted: #9B8585;
-  --card-bg: #FFFFFF;
-  --card-border: rgba(194,132,122,0.18);
-  --radius: 16px;
-  --shadow-soft: 0 4px 24px rgba(61,44,44,0.06);
-  --shadow-hover: 0 8px 32px rgba(194,132,122,0.15);
+  --cream: #FDF6F0; --cream-dark: #F5EBE0; --rose: #C2847A; --rose-deep: #A8655A;
+  --rose-light: rgba(194,132,122,0.12); --terracotta: #B56B5D; --text-dark: #3D2C2C;
+  --text-body: #5C4A4A; --text-muted: #9B8585; --card-bg: #FFFFFF;
+  --card-border: rgba(194,132,122,0.18); --radius: 16px;
+  --shadow-soft: 0 4px 24px rgba(61,44,44,0.06); --shadow-hover: 0 8px 32px rgba(194,132,122,0.15);
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: 'Nunito Sans', sans-serif;
-  background: var(--cream);
-  color: var(--text-body);
-  min-height: 100dvh;
-  overflow-x: hidden;
-}
-body::before {
-  content: '';
-  position: fixed;
-  top: -30%; right: -20%;
-  width: 80%; height: 80%;
-  background: radial-gradient(ellipse, rgba(194,132,122,0.08) 0%, transparent 70%);
-  pointer-events: none; z-index: 0;
-}
+body { font-family: 'Nunito Sans', sans-serif; background: var(--cream); color: var(--text-body); min-height: 100dvh; overflow-x: hidden; }
+body::before { content: ''; position: fixed; top: -30%; right: -20%; width: 80%; height: 80%; background: radial-gradient(ellipse, rgba(194,132,122,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }
 
-.quiz-container {
-  position: relative; z-index: 1;
-  max-width: 580px;
-  margin: 0 auto;
-  padding: 16px 16px 40px;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-}
+.quiz-container { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; padding: 16px 16px 40px; min-height: 100dvh; display: flex; flex-direction: column; }
 
 /* ═══ WELCOME ═══ */
-.welcome-screen {
-  flex: 1; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding: 40px 8px;
-  animation: fadeUp 0.8s ease;
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.welcome-icon {
-  width: 88px; height: 88px; border-radius: 50%;
-  background: linear-gradient(135deg, rgba(194,132,122,0.15), rgba(194,132,122,0.05));
-  border: 1.5px solid var(--card-border);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 28px;
-  box-shadow: 0 8px 32px rgba(194,132,122,0.1);
-}
+.welcome-screen { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 8px; animation: fadeUp 0.8s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.welcome-icon { width: 88px; height: 88px; border-radius: 50%; background: linear-gradient(135deg, rgba(194,132,122,0.15), rgba(194,132,122,0.05)); border: 1.5px solid var(--card-border); display: flex; align-items: center; justify-content: center; margin-bottom: 28px; box-shadow: 0 8px 32px rgba(194,132,122,0.1); }
 .welcome-icon svg { width: 42px; height: 42px; }
-.welcome-tag {
-  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--rose); font-weight: 700; margin-bottom: 20px;
-}
-.welcome-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(30px, 8vw, 44px); font-weight: 700;
-  line-height: 1.15; color: var(--text-dark); margin-bottom: 18px;
-}
+.welcome-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--rose); font-weight: 700; margin-bottom: 20px; }
+.welcome-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 8vw, 44px); font-weight: 700; line-height: 1.15; color: var(--text-dark); margin-bottom: 18px; }
 .welcome-title em { color: var(--rose-deep); font-style: italic; font-weight: 600; }
-.welcome-desc {
-  font-size: 15px; line-height: 1.7; color: var(--text-muted);
-  max-width: 420px; margin-bottom: 36px;
-}
-.welcome-features {
-  display: flex; gap: 24px; margin-bottom: 40px;
-  flex-wrap: wrap; justify-content: center;
-}
-.welcome-feat {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; color: var(--text-body); font-weight: 500;
-}
-.welcome-feat .dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--rose); flex-shrink: 0;
-}
-.start-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 10px; padding: 18px 48px;
-  background: var(--rose-deep); color: #fff; border: none; border-radius: 50px;
-  font-size: 16px; font-weight: 700; font-family: 'Nunito Sans', sans-serif;
-  text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer;
-  transition: all 0.3s; box-shadow: 0 8px 32px rgba(168,101,90,0.3);
-}
+.welcome-desc { font-size: 15px; line-height: 1.7; color: var(--text-muted); max-width: 420px; margin-bottom: 36px; }
+.welcome-features { display: flex; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; justify-content: center; }
+.welcome-feat { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-body); font-weight: 500; }
+.welcome-feat .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--rose); flex-shrink: 0; }
+.start-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 48px; background: var(--rose-deep); color: #fff; border: none; border-radius: 50px; font-size: 16px; font-weight: 700; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 32px rgba(168,101,90,0.3); }
 .start-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(168,101,90,0.4); background: var(--terracotta); }
 .welcome-note { margin-top: 20px; font-size: 12px; color: var(--text-muted); }
 
@@ -117,58 +70,23 @@ body::before {
 .progress-fill { height: 100%; background: linear-gradient(90deg, var(--rose), var(--terracotta)); border-radius: 5px; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
 
 .question-card { flex: 1; display: flex; flex-direction: column; }
-.question-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 5.5vw, 28px); font-weight: 700;
-  line-height: 1.3; color: var(--text-dark); margin-bottom: 8px;
-}
+.question-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 5.5vw, 28px); font-weight: 700; line-height: 1.3; color: var(--text-dark); margin-bottom: 8px; }
 .question-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.4; }
 .options-list { display: flex; flex-direction: column; gap: 10px; list-style: none; }
 
-.option-btn {
-  display: flex; align-items: center; gap: 14px; width: 100%;
-  padding: 16px 20px; background: var(--card-bg);
-  border: 1.5px solid var(--card-border); border-radius: var(--radius);
-  color: var(--text-dark); font-size: 15px; font-weight: 500;
-  line-height: 1.4; cursor: pointer; transition: all 0.25s ease;
-  text-align: left; font-family: 'Nunito Sans', sans-serif;
-  box-shadow: var(--shadow-soft);
-}
+.option-btn { display: flex; align-items: center; gap: 14px; width: 100%; padding: 16px 20px; background: var(--card-bg); border: 1.5px solid var(--card-border); border-radius: var(--radius); color: var(--text-dark); font-size: 15px; font-weight: 500; line-height: 1.4; cursor: pointer; transition: all 0.25s ease; text-align: left; font-family: 'Nunito Sans', sans-serif; box-shadow: var(--shadow-soft); }
 .option-btn:hover { border-color: var(--rose); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
 .option-btn:active { transform: scale(0.98); }
-
-.option-icon {
-  flex-shrink: 0; width: 40px; height: 40px;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--rose-light); border-radius: 12px;
-}
+.option-icon { flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: var(--rose-light); border-radius: 12px; }
 .option-icon svg { width: 22px; height: 22px; stroke: var(--rose-deep); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-
 .option-btn.selected { border-color: var(--rose-deep); background: var(--rose-light); box-shadow: 0 4px 20px rgba(194,132,122,0.18); }
 .option-btn.selected .option-icon { background: var(--rose-deep); }
 .option-btn.selected .option-icon svg { stroke: #fff; }
 
-.multi-hint {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 5px 14px; background: var(--rose-light); border-radius: 20px;
-  font-size: 11px; font-weight: 600; color: var(--rose-deep); margin-bottom: 16px;
-}
-.next-btn {
-  display: none; align-items: center; justify-content: center; gap: 8px;
-  margin-top: 20px; padding: 14px 36px;
-  background: var(--rose-deep); color: #fff; border: none; border-radius: 50px;
-  font-size: 15px; font-weight: 700; font-family: 'Nunito Sans', sans-serif;
-  cursor: pointer; transition: all 0.3s;
-  box-shadow: 0 6px 24px rgba(168,101,90,0.25); width: 100%;
-}
-.next-btn.visible { display: flex; }
-.next-btn:hover { background: var(--terracotta); transform: translateY(-2px); }
-.next-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-
 .slide-enter { animation: slideIn 0.4s ease forwards; }
 @keyframes slideIn { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
 
-/* ═══ LOADING ═══ */
+/* ═══ LOADING & RESULT ═══ */
 .loading-screen { text-align: center; padding: 60px 20px; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .loading-petals { width: 64px; height: 64px; position: relative; margin-bottom: 32px; }
 .loading-petals::before, .loading-petals::after { content: ''; position: absolute; width: 20px; height: 20px; border-radius: 50%; background: var(--rose); }
@@ -188,7 +106,6 @@ body::before {
 .loading-step.done .check { background: var(--rose-deep); border-color: var(--rose-deep); color: #fff; }
 @keyframes fs { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ═══ RESULT ═══ */
 .result-screen { flex: 1; display: flex; flex-direction: column; animation: fadeUp 0.6s ease; padding-top: 20px; }
 .result-type-badge { display: inline-block; padding: 6px 18px; background: var(--rose-light); border: 1px solid var(--card-border); border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--rose-deep); margin-bottom: 16px; }
 .result-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 7vw, 36px); font-weight: 700; line-height: 1.15; color: var(--text-dark); margin-bottom: 20px; }
@@ -201,55 +118,31 @@ body::before {
 .result-card li::before { content: '✦'; color: var(--rose); flex-shrink: 0; font-size: 10px; margin-top: 4px; }
 .result-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--card-border), transparent); margin: 28px 0; }
 .result-cta-section { background: var(--card-bg); border: 1.5px solid var(--rose); border-radius: 20px; padding: 32px 24px; text-align: center; margin-bottom: 20px; box-shadow: 0 8px 40px rgba(194,132,122,0.1); position: relative; overflow: hidden; }
-.result-cta-section::before { content: ''; position: absolute; top: -40%; right: -30%; width: 80%; height: 80%; background: radial-gradient(ellipse, rgba(194,132,122,0.06) 0%, transparent 70%); pointer-events: none; }
-.result-cta-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; position: relative; }
-.result-cta-section p { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; position: relative; }
-.cta-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 36px; background: var(--rose-deep); color: #fff; border: none; border-radius: 50px; font-size: 15px; font-weight: 700; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; text-decoration: none; transition: all 0.3s; box-shadow: 0 8px 28px rgba(168,101,90,0.3); width: 100%; max-width: 380px; position: relative; }
+.result-cta-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; position: relative; z-index: 2;}
+.result-cta-section p { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; position: relative; z-index: 2;}
+.cta-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 36px; background: var(--rose-deep); color: #fff; border: none; border-radius: 50px; font-size: 15px; font-weight: 700; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; text-decoration: none; transition: all 0.3s; box-shadow: 0 8px 28px rgba(168,101,90,0.3); width: 100%; max-width: 380px; position: relative; z-index: 2;}
 .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(168,101,90,0.4); background: var(--terracotta); }
 
-/* ═══ POPUP ═══ */
-.popup-overlay {
-  position: fixed; inset: 0;
-  background: rgba(61,44,44,0.5);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-  z-index: 1000; display: flex; align-items: center; justify-content: center;
-  padding: 16px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-}
+/* ═══ POPUP & INTL-TEL-INPUT FIXES ═══ */
+.popup-overlay { position: fixed; inset: 0; background: rgba(61,44,44,0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 16px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .popup-overlay.open { opacity: 1; pointer-events: all; }
-.popup-card {
-  background: var(--card-bg); border-radius: 24px;
-  padding: 36px 28px 32px; max-width: 460px; width: 100%;
-  position: relative; box-shadow: 0 24px 64px rgba(61,44,44,0.15);
-  transform: translateY(20px) scale(0.97);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  max-height: 92vh; overflow-y: auto;
-}
+.popup-card { background: var(--card-bg); border-radius: 24px; padding: 36px 28px 32px; max-width: 460px; width: 100%; position: relative; box-shadow: 0 24px 64px rgba(61,44,44,0.15); transform: translateY(20px) scale(0.97); transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1); max-height: 92vh; overflow-y: auto; }
 .popup-overlay.open .popup-card { transform: translateY(0) scale(1); }
-.popup-close {
-  position: absolute; top: 14px; right: 16px;
-  width: 32px; height: 32px; border-radius: 50%; border: none;
-  background: var(--cream-dark); color: var(--text-muted);
-  font-size: 18px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
-}
+.popup-close { position: absolute; top: 14px; right: 16px; width: 32px; height: 32px; border-radius: 50%; border: none; background: var(--cream-dark); color: var(--text-muted); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 10;}
 .popup-close:hover { background: var(--rose-light); color: var(--rose-deep); }
-.popup-icon {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: var(--rose-light);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 20px;
-}
+.popup-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--rose-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
 .popup-icon svg { width: 28px; height: 28px; stroke: var(--rose-deep); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .popup-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--text-dark); text-align: center; margin-bottom: 8px; line-height: 1.2; }
 .popup-desc { font-size: 13px; color: var(--text-muted); text-align: center; line-height: 1.5; margin-bottom: 24px; }
 .popup-form { display: flex; flex-direction: column; gap: 12px; }
-.popup-field { display: flex; flex-direction: column; gap: 5px; }
+.popup-field { display: flex; flex-direction: column; gap: 5px; position: relative;}
 .popup-field label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
-.popup-field input { padding: 13px 16px; background: var(--cream); border: 1.5px solid var(--card-border); border-radius: 12px; color: var(--text-dark); font-size: 15px; font-family: 'Nunito Sans', sans-serif; outline: none; transition: border-color 0.3s; }
+.popup-field input { padding: 13px 16px; background: var(--cream); border: 1.5px solid var(--card-border); border-radius: 12px; color: var(--text-dark); font-size: 15px; font-family: 'Nunito Sans', sans-serif; outline: none; transition: border-color 0.3s; width: 100%;}
 .popup-field input:focus { border-color: var(--rose); box-shadow: 0 0 0 4px rgba(194,132,122,0.1); }
 .popup-field input::placeholder { color: #bba8a8; }
-.popup-field input.error { border-color: #e07070; }
+.popup-field input.error { border-color: #e07070; background: #fff5f5; }
+.error-text { color: #e07070; font-size: 11px; margin-top: -3px; display: none; font-weight: 600;}
+.popup-field input.error + .error-text { display: block; }
 .popup-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media (max-width: 420px) { .popup-row { grid-template-columns: 1fr; } }
 .popup-submit { margin-top: 8px; padding: 16px; background: var(--rose-deep); color: #fff; border: none; border-radius: 50px; font-size: 15px; font-weight: 700; font-family: 'Nunito Sans', sans-serif; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 28px rgba(168,101,90,0.3); }
@@ -257,11 +150,10 @@ body::before {
 .popup-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 .popup-note { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 12px; line-height: 1.4; }
 
-.popup-success { text-align: center; padding: 20px 0 10px; }
-.popup-success-icon { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--rose-light), rgba(194,132,122,0.2)); display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 20px; }
-.popup-success h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
-.popup-success p { font-size: 14px; color: var(--text-body); line-height: 1.6; margin-bottom: 8px; }
-.popup-success .hl { color: var(--rose-deep); font-weight: 700; }
+/* Styles for intl-tel-input integration */
+.iti { width: 100%; }
+.iti__flag-container { padding: 2px; }
+.iti__selected-flag { border-radius: 10px 0 0 10px; padding: 0 12px; }
 
 .hidden { display: none !important; }
 @media (max-width: 480px) { .quiz-container { padding: 10px 14px 32px; } .option-btn { padding: 14px 16px; font-size: 14px; } }
@@ -270,19 +162,11 @@ body::before {
 <body>
 
 <div class="quiz-container" id="app">
-
   <!-- WELCOME -->
   <div class="welcome-screen" id="welcomeScreen">
     <div class="welcome-icon">
       <svg viewBox="0 0 48 48" fill="none" stroke="#A8655A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <ellipse cx="24" cy="20" rx="12" ry="15"/>
-        <path d="M16 18c0 0 2 1 4 1s4-1 4-1"/>
-        <circle cx="19" cy="15" r="1.2" fill="#A8655A" stroke="none"/>
-        <circle cx="29" cy="15" r="1.2" fill="#A8655A" stroke="none"/>
-        <path d="M18 38c2 3 4 4 6 4s4-1 6-4"/>
-        <path d="M15 35c-4-2-7-6-7-12"/>
-        <path d="M33 35c4-2 7-6 7-12"/>
-        <path d="M20 42c1 2 3 4 4 4s3-2 4-4"/>
+        <ellipse cx="24" cy="20" rx="12" ry="15"/><path d="M16 18c0 0 2 1 4 1s4-1 4-1"/><circle cx="19" cy="15" r="1.2" fill="#A8655A" stroke="none"/><circle cx="29" cy="15" r="1.2" fill="#A8655A" stroke="none"/><path d="M18 38c2 3 4 4 6 4s4-1 6-4"/><path d="M15 35c-4-2-7-6-7-12"/><path d="M33 35c4-2 7-6 7-12"/><path d="M20 42c1 2 3 4 4 4s3-2 4-4"/>
       </svg>
     </div>
     <div class="welcome-tag">безкоштовний тест</div>
@@ -303,10 +187,7 @@ body::before {
   <!-- QUIZ -->
   <div class="quiz-flow" id="quizFlow">
     <div class="progress-wrap">
-      <div class="progress-meta">
-        <span class="progress-step" id="stepLabel">01 / 07</span>
-        <span class="progress-pct" id="pctLabel">14%</span>
-      </div>
+      <div class="progress-meta"><span class="progress-step" id="stepLabel">01 / 07</span><span class="progress-pct" id="pctLabel">14%</span></div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:14%"></div></div>
     </div>
     <div class="question-card" id="questionArea"></div>
@@ -337,43 +218,58 @@ body::before {
       <div class="popup-icon">
         <svg viewBox="0 0 28 28"><path d="M14 3c-5 0-9 4-9 9 0 3 1.5 5.5 4 7.2V23l3.5-2c.5.1 1 .2 1.5.2 5 0 9-4 9-9s-4-9-9-9z"/><path d="M10 11h8M10 14.5h5"/></svg>
       </div>
-      <div class="popup-title">Отримай детальний розбір свого типу</div>
+      <div class="popup-title">Отримай детальний розбір</div>
       <div class="popup-desc">Заповни коротку форму — і я надішлю тобі персональний план з техніками, помилками та відеоуроком</div>
       <div class="popup-form">
         <div class="popup-field">
           <label>Твоє імʼя</label>
           <input type="text" id="popupName" placeholder="Олена" autocomplete="given-name">
+          <div class="error-text">Введіть коректне ім'я (без цифр)</div>
         </div>
         <div class="popup-field">
           <label>Номер телефону</label>
-          <input type="tel" id="popupPhone" placeholder="+380 ..." autocomplete="tel">
+          <input type="tel" id="popupPhone" autocomplete="tel">
+          <div class="error-text">Введіть коректний номер телефону</div>
         </div>
         <div class="popup-row">
           <div class="popup-field">
-            <label>Telegram</label>
+            <label>Telegram (за бажанням)</label>
             <input type="text" id="popupTg" placeholder="@nickname">
           </div>
           <div class="popup-field">
-            <label>Email</label>
+            <label>Email (за бажанням)</label>
             <input type="email" id="popupEmail" placeholder="email@..." autocomplete="email">
           </div>
         </div>
-        <button class="popup-submit" id="popupSubmitBtn" onclick="submitPopup()">Надіслати</button>
+        <button class="popup-submit" id="popupSubmitBtn" onclick="submitPopup()">Отримати розбір</button>
         <div class="popup-note">🔒 Ніякого спаму — тільки персональний розбір від Світлани</div>
-      </div>
-    </div>
-    <div id="popupSuccess" class="hidden">
-      <div class="popup-success">
-        <div class="popup-success-icon">✨</div>
-        <h3>Дякую, <span id="successName"></span>!</h3>
-        <p>Твій тип старіння: <span class="hl" id="successType"></span></p>
-        <p>Я вже готую для тебе детальний розбір із персональними рекомендаціями. Надішлю найближчим часом 💛</p>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
 <script>
+// ═══ GLOBAL UTM CAPTURE ═══
+let utmData = {};
+function captureUTMs() {
+  const params = new URLSearchParams(window.location.search);
+  utmData = {
+    source: params.get('utm_source') || '',
+    medium: params.get('utm_medium') || '',
+    campaign: params.get('utm_campaign') || '',
+    content: params.get('utm_content') || '',
+    term: params.get('utm_term') || ''
+  };
+}
+captureUTMs();
+
+// ═══ CONFIGS & WEBHOOKS ═══
+const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL'; // ВСТАВТЕ СИЛКУ НА GOOGLE APPS SCRIPT
+const TG_BOT_URL = 'YOUR_BOT_LINK'; // ВСТАВТЕ СИЛКУ НА ВАШОГО БОТА (наприклад: https://t.me/svitlana_bot)
+
 // ═══ SVG ICONS ═══
 const IC = {
   tired:    `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 15c1 1.5 2.5 2 4 2s3-.5 4-2"/><path d="M9 10.5c0-.3-.5-1.5-1.5-1.5S6 10.2 6 10.5"/><path d="M18 10.5c0-.3-.5-1.5-1.5-1.5S15 10.2 15 10.5"/></svg>`,
@@ -406,104 +302,34 @@ const IC = {
   age4:     `<svg viewBox="0 0 24 24"><path d="M12 20c-4 0-6-2-6-5s3-5 6-5 6 2 6 5-2 5-6 5z"/><path d="M8 3c1 2 3 4 4 4s3-2 4-4"/><path d="M7 6c2 2 4 3 5 3s3-1 5-3"/><path d="M8 9c1 1 3 1.5 4 1.5s3-.5 4-1.5"/></svg>`,
 };
 
-// ═══ QUESTIONS ═══
+// ═══ QUESTIONS (ALL SINGLE-SELECT NOW) ═══
 const questions = [
-  {
-    text: "Що турбує тебе найбільше, коли дивишся в дзеркало?",
-    sub: "Можеш обрати кілька варіантів",
-    multi: true,
-    options: [
-      { icon: IC.tired, label: "Втомлений вигляд, ніби не виспалася", scores: { deform: 0, muscular: 0, tired: 3, wrinkle: 0 }},
-      { icon: IC.oval, label: "Овал \"поплив\", контури нечіткі, брилі", scores: { deform: 3, muscular: 0, tired: 0, wrinkle: 0 }},
-      { icon: IC.wrinkles, label: "Зморшки на чолі, між бровами, \"гусячі лапки\"", scores: { deform: 0, muscular: 2, tired: 0, wrinkle: 2 }},
-      { icon: IC.puff, label: "Набряки, одутлість, важке обличчя", scores: { deform: 2, muscular: 0, tired: 2, wrinkle: 0 }}
-    ]
-  },
-  {
-    text: "Які зони обличчя змінилися найбільше за останні роки?",
-    sub: "Можеш обрати кілька варіантів",
-    multi: true,
-    options: [
-      { icon: IC.eye, label: "Зона очей — нависле повіко, мішки, зморшки", scores: { deform: 0, muscular: 1, tired: 2, wrinkle: 3 }},
-      { icon: IC.cheeks, label: "Щоки та підборіддя — все \"сповзає\" вниз", scores: { deform: 3, muscular: 0, tired: 0, wrinkle: 0 }},
-      { icon: IC.nose, label: "Носогубні складки стали глибшими", scores: { deform: 2, muscular: 1, tired: 1, wrinkle: 1 }},
-      { icon: IC.forehead, label: "Чоло і міжбрів'я — заломи, горизонтальні лінії", scores: { deform: 0, muscular: 3, tired: 0, wrinkle: 2 }}
-    ]
-  },
-  {
-    text: "Як виглядає твоє обличчя зранку?",
-    sub: "Можеш обрати кілька варіантів",
-    multi: true,
-    options: [
-      { icon: IC.morning1, label: "Набрякле, особливо під очима і щоки", scores: { deform: 1, muscular: 0, tired: 3, wrinkle: 0 }},
-      { icon: IC.morning2, label: "Заломи від подушки довго не зникають", scores: { deform: 0, muscular: 0, tired: 0, wrinkle: 3 }},
-      { icon: IC.morning3, label: "Обличчя виглядає \"обвислим\", потім підтягується", scores: { deform: 3, muscular: 0, tired: 1, wrinkle: 0 }},
-      { icon: IC.morning4, label: "Зранку нормально, але до вечора обличчя \"важчає\"", scores: { deform: 0, muscular: 3, tired: 1, wrinkle: 0 }}
-    ]
-  },
-  {
-    text: "Який у тебе тип шкіри?",
-    sub: "Це дуже важливе питання для точного результату",
-    multi: false,
-    options: [
-      { icon: IC.skinThin, label: "Тонка, суха — швидко зʼявляються зморшки", scores: { deform: 0, muscular: 0, tired: 0, wrinkle: 5 }},
-      { icon: IC.skinThick, label: "Щільна, схильна до набряків і другого підборіддя", scores: { deform: 4, muscular: 1, tired: 1, wrinkle: 0 }},
-      { icon: IC.skinNorm, label: "Комбінована або нормальна", scores: { deform: 0, muscular: 2, tired: 2, wrinkle: 0 }},
-      { icon: IC.skinDry, label: "Зневоднена — не суха, але їй не вистачає вологи", scores: { deform: 0, muscular: 0, tired: 1, wrinkle: 3 }}
-    ]
-  },
-  {
-    text: "Як поводиться твоя міміка?",
-    sub: "",
-    multi: false,
-    options: [
-      { icon: IC.mimic1, label: "Часто хмурю брови, стискаю щелепу, є напруга", scores: { deform: 0, muscular: 4, tired: 0, wrinkle: 1 }},
-      { icon: IC.mimic2, label: "Міміка спокійна, але обличчя виглядає \"сумним\"", scores: { deform: 1, muscular: 0, tired: 3, wrinkle: 0 }},
-      { icon: IC.mimic3, label: "Активна — і від цього зморшки закріплюються", scores: { deform: 0, muscular: 2, tired: 0, wrinkle: 3 }},
-      { icon: IC.mimic4, label: "Не звертала уваги на міміку", scores: { deform: 1, muscular: 1, tired: 1, wrinkle: 1 }}
-    ]
-  },
-  {
-    text: "Що ти вже пробувала для омолодження?",
-    sub: "",
-    multi: false,
-    options: [
-      { icon: IC.botox, label: "Ботокс або філери — але ефект тимчасовий", scores: { deform: 1, muscular: 2, tired: 1, wrinkle: 2 }},
-      { icon: IC.cream, label: "Креми та сироватки — результату мало", scores: { deform: 1, muscular: 0, tired: 1, wrinkle: 2 }},
-      { icon: IC.phone, label: "Вправи з інтернету — не впевнена, чи правильно", scores: { deform: 1, muscular: 2, tired: 1, wrinkle: 1 }},
-      { icon: IC.shrug, label: "Нічого — не знаю, з чого почати", scores: { deform: 1, muscular: 1, tired: 1, wrinkle: 1 }}
-    ]
-  },
-  {
-    text: "Скільки тобі років?",
-    sub: "",
-    multi: false,
-    options: [
-      { icon: IC.age1, label: "25–32", scores: { deform: 0, muscular: 1, tired: 1, wrinkle: 1 }},
-      { icon: IC.age2, label: "33–40", scores: { deform: 1, muscular: 1, tired: 1, wrinkle: 1 }},
-      { icon: IC.age3, label: "41–50", scores: { deform: 2, muscular: 1, tired: 1, wrinkle: 2 }},
-      { icon: IC.age4, label: "50+", scores: { deform: 2, muscular: 1, tired: 1, wrinkle: 2 }}
-    ]
-  }
+  { text: "Що турбує тебе найбільше, коли дивишся в дзеркало?", sub: "Обери найближчий варіант", options: [ { icon: IC.tired, label: "Втомлений вигляд, ніби не виспалася", scores: { deform: 0, muscular: 0, tired: 3, wrinkle: 0 }}, { icon: IC.oval, label: "Овал \"поплив\", контури нечіткі, брилі", scores: { deform: 3, muscular: 0, tired: 0, wrinkle: 0 }}, { icon: IC.wrinkles, label: "Зморшки на чолі, між бровами", scores: { deform: 0, muscular: 2, tired: 0, wrinkle: 2 }}, { icon: IC.puff, label: "Набряки, одутлість, важке обличчя", scores: { deform: 2, muscular: 0, tired: 2, wrinkle: 0 }} ] },
+  { text: "Які зони обличчя змінилися найбільше за останні роки?", sub: "Обери найближчий варіант", options: [ { icon: IC.eye, label: "Зона очей — нависле повіко, мішки, зморшки", scores: { deform: 0, muscular: 1, tired: 2, wrinkle: 3 }}, { icon: IC.cheeks, label: "Щоки та підборіддя — все \"сповзає\" вниз", scores: { deform: 3, muscular: 0, tired: 0, wrinkle: 0 }}, { icon: IC.nose, label: "Носогубні складки стали глибшими", scores: { deform: 2, muscular: 1, tired: 1, wrinkle: 1 }}, { icon: IC.forehead, label: "Чоло і міжбрів'я — заломи, горизонтальні лінії", scores: { deform: 0, muscular: 3, tired: 0, wrinkle: 2 }} ] },
+  { text: "Як виглядає твоє обличчя зранку?", sub: "Обери найближчий варіант", options: [ { icon: IC.morning1, label: "Набрякле, особливо під очима і щоки", scores: { deform: 1, muscular: 0, tired: 3, wrinkle: 0 }}, { icon: IC.morning2, label: "Заломи від подушки довго не зникають", scores: { deform: 0, muscular: 0, tired: 0, wrinkle: 3 }}, { icon: IC.morning3, label: "Обличчя виглядає \"обвислим\", потім підтягується", scores: { deform: 3, muscular: 0, tired: 1, wrinkle: 0 }}, { icon: IC.morning4, label: "Зранку нормально, але до вечора обличчя \"важчає\"", scores: { deform: 0, muscular: 3, tired: 1, wrinkle: 0 }} ] },
+  { text: "Який у тебе тип шкіри?", sub: "Це дуже важливе питання для точного результату", options: [ { icon: IC.skinThin, label: "Тонка, суха — швидко зʼявляються зморшки", scores: { deform: 0, muscular: 0, tired: 0, wrinkle: 5 }}, { icon: IC.skinThick, label: "Щільна, схильна до набряків", scores: { deform: 4, muscular: 1, tired: 1, wrinkle: 0 }}, { icon: IC.skinNorm, label: "Комбінована або нормальна", scores: { deform: 0, muscular: 2, tired: 2, wrinkle: 0 }}, { icon: IC.skinDry, label: "Зневоднена — їй не вистачає вологи", scores: { deform: 0, muscular: 0, tired: 1, wrinkle: 3 }} ] },
+  { text: "Як поводиться твоя міміка?", sub: "", options: [ { icon: IC.mimic1, label: "Часто хмурю брови, стискаю щелепу", scores: { deform: 0, muscular: 4, tired: 0, wrinkle: 1 }}, { icon: IC.mimic2, label: "Міміка спокійна, але обличчя виглядає \"сумним\"", scores: { deform: 1, muscular: 0, tired: 3, wrinkle: 0 }}, { icon: IC.mimic3, label: "Активна — і від цього зморшки закріплюються", scores: { deform: 0, muscular: 2, tired: 0, wrinkle: 3 }}, { icon: IC.mimic4, label: "Не звертала уваги на міміку", scores: { deform: 1, muscular: 1, tired: 1, wrinkle: 1 }} ] },
+  { text: "Що ти вже пробувала для омолодження?", sub: "", options: [ { icon: IC.botox, label: "Ботокс або філери — але ефект тимчасовий", scores: { deform: 1, muscular: 2, tired: 1, wrinkle: 2 }}, { icon: IC.cream, label: "Креми та сироватки — результату мало", scores: { deform: 1, muscular: 0, tired: 1, wrinkle: 2 }}, { icon: IC.phone, label: "Вправи з інтернету — не впевнена, чи правильно", scores: { deform: 1, muscular: 2, tired: 1, wrinkle: 1 }}, { icon: IC.shrug, label: "Нічого — не знаю, з чого почати", scores: { deform: 1, muscular: 1, tired: 1, wrinkle: 1 }} ] },
+  { text: "Скільки тобі років?", sub: "", options: [ { icon: IC.age1, label: "25–32", scores: { deform: 0, muscular: 1, tired: 1, wrinkle: 1 }}, { icon: IC.age2, label: "33–40", scores: { deform: 1, muscular: 1, tired: 1, wrinkle: 1 }}, { icon: IC.age3, label: "41–50", scores: { deform: 2, muscular: 1, tired: 1, wrinkle: 2 }}, { icon: IC.age4, label: "50+", scores: { deform: 2, muscular: 1, tired: 1, wrinkle: 2 }} ] }
 ];
 
 // ═══ RESULT TYPES ═══
 const resultTypes = {
-  deform: { badge: "Деформаційний тип", title: "Твій тип старіння — <em>деформаційний</em>", summary: "Твоє обличчя змінюється через гравітацію та застій лімфи. Щільна шкіра поступово «сповзає» вниз, овал втрачає чіткість, зʼявляється друге підборіддя та набряки. Креми тут не допоможуть — потрібно працювати з глибокими тканинами, лімфовідтоком та мʼязовим каркасом.", signs: ["Нечіткий овал, «бульдожки», друге підборіддя","Набряклість обличчя, особливо зранку","Носогубні складки через «сповзання» тканин","Шкіра щільна, але обличчя виглядає важким"], plan: ["Лімфодренажний масаж — твій головний інструмент","Тейпування для підтримки овалу та контурів","Робота з шиєю — вона тримає все обличчя","Спеціальні техніки проти набряків щодня"], tg: "deform" },
-  muscular: { badge: "Мʼязовий тип", title: "Твій тип старіння — <em>мʼязовий</em>", summary: "У тебе потужний мʼязовий каркас, але проблема саме в цьому — мʼязи перенапружені. Вони створюють заломи на чолі, «11» між бровами, затискають шию. Ботокс тимчасово їх розслабляє, але руйнує природну міміку. Є інший шлях — правильне розслаблення та баланс тонусу.", signs: ["Глибокі заломи між бровами — «11»","Горизонтальні зморшки на чолі від напруги","Затиснута щелепа, напруга в шиї","Шкіра щільна, але обличчя виглядає напруженим"], plan: ["Розслаблення гіпертонусних мʼязів — ключ до результату","Масаж для зняття напруги з чола та міжбрівʼя","Тейпування для «перевиховання» мʼязів","Вправи для балансу — розслабити + тонізувати"], tg: "muscular" },
-  tired: { badge: "Втомлений тип", title: "Твій тип старіння — <em>втомлений</em>", summary: "Твоє обличчя виглядає втомленим навіть після відпочинку. Причина — порушений лімфовідтік, застій рідини та внутрішнє виснаження. Набряки, тьмяна шкіра, опущені кутики рота — це не «генетика», а сигнали тіла, з якими можна працювати.", signs: ["Постійний «втомлений» вигляд без причини","Набряки під очима та на щоках","Тьмяний колір обличчя, відсутність сяйва","Опущені кутики рота — «сумний» вираз"], plan: ["Активація лімфовідтоку — перший і головний крок","Ранкова рутина проти набряків за 5 хвилин","Тейпування на ніч для свіжості зранку","Масаж для повернення здорового кольору шкіри"], tg: "tired" },
-  wrinkle: { badge: "Дрібнозморшкуватий тип", title: "Твій тип старіння — <em>дрібнозморшкуватий</em>", summary: "У тебе тонка, делікатна шкіра, яка рано починає покриватися мережею зморшок — навколо очей, на чолі, біля рота. Проблема не у кремах — потрібно працювати з мʼязами та фасціями, щоб «розгладити» шкіру зсередини і повернути їй пружність.", signs: ["«Гусячі лапки» навколо очей","Зморшки на чолі та навколо рота","Заломи від подушки довго не зникають","Шкіра тонка, суха, швидко «мнеться»"], plan: ["Глибока робота з фасціями для пружності","Тейпування для розгладження зморшок","Масаж зони очей — делікатно та ефективно","Техніки «наповнення» шкіри без інʼєкцій"], tg: "wrinkle" },
-  deform_muscular: { badge: "Деформаційно-мʼязовий тип", title: "Твій тип старіння — <em>деформаційно-мʼязовий</em>", summary: "У тебе поєднання двох процесів: гравітаційне опущення тканин (поплив овал, брилі, носогубки) + активна міміка, яка створює глибокі заломи на чолі та між бровами. Шкіра щільна або комбінована, часто є схильність до набряків. Це один із найпоширеніших змішаних типів.", signs: ["Поплив овал + носогубні складки + брилі","Зморшки на лобі, міжбрівка, «гусячі лапки»","Щільна або комбінована шкіра","Одночасно є і «сповзання», і напруга мʼязів"], plan: ["Поєднання лімфодренажу та розслаблення мʼязів","Тейпування: овал + зона чола одночасно","Робота з шиєю для підтримки верхньої та нижньої частин","Індивідуальна схема — спочатку овал, потім міміка"], tg: "deform_muscular" },
-  deform_wrinkle: { badge: "Деформаційно-дрібнозморшкуватий тип", title: "Твій тип старіння — <em>деформаційно-дрібнозморшкуватий</em>", summary: "Тонка або зневоднена шкіра, яка покривається мережею зморшок — і при цьому обличчя «сповзає», овал втрачає чіткість. Вигляд «втомленої і вʼялої» шкіри. Потрібно працювати одночасно з пружністю шкіри та з підтримкою контурів.", signs: ["Дрібна сітка зморшок + вʼялість шкіри","Поплив овал, носогубні складки","Тонка або зневоднена шкіра з набряковістю","Обличчя виглядає одночасно «вʼялим» і «обвислим»"], plan: ["Тейпування для овалу + зволоження фасцій","Масаж для повернення пружності тонкій шкірі","Лімфодренаж для зняття набряковості","Делікатні техніки — без розтягування тонкої шкіри"], tg: "deform_wrinkle" },
-  deform_tired: { badge: "Деформаційно-втомлений тип", title: "Твій тип старіння — <em>деформаційно-втомлений</em>", summary: "Щільна шкіра, схильна до набряків — і при цьому обличчя виглядає постійно втомленим та набряклим. Темні кола, носослізна борозна + птоз і важкий овал. Основна робота — з лімфовідтоком та підтримкою контурів одночасно.", signs: ["Набряки + темні кола під очима","Носослізна борозна, втомлений погляд","Птоз — обличчя «сповзає» + важкий овал","Обличчя виглядає «набряклим і втомленим» одночасно"], plan: ["Потужний лімфодренаж — головний пріоритет","Тейпування овалу + зона під очима","Масаж для «полегшення» важкого обличчя","Ранкова антинабрякова рутина кожен день"], tg: "deform_tired" },
-  muscular_wrinkle: { badge: "Мʼязово-дрібнозморшкуватий тип", title: "Твій тип старіння — <em>мʼязово-дрібнозморшкуватий</em>", summary: "Активна міміка (лоб, міжбрівʼя, очі) на тонкій або сухій шкірі — це означає, що зморшки від напруги закріплюються дуже швидко і стають глибшими. Ключ — розслабити мʼязи + відновити пружність шкіри, щоб заломи не фіксувалися.", signs: ["Активна міміка — лоб, міжбрівка, очі","Багато дрібних зморшок, які швидко закріплюються","Тонка або суха шкіра","Зморшки стають глибшими з кожним роком"], plan: ["Розслаблення мʼязів — щоб припинити «друкувати» заломи","Тейпування чола і зони очей на ніч","Фасціальний масаж для пружності тонкої шкіри","Комбінація: розслабити мʼязи + наповнити шкіру"], tg: "muscular_wrinkle" },
-  muscular_tired: { badge: "Мʼязово-втомлений тип", title: "Твій тип старіння — <em>мʼязово-втомлений</em>", summary: "Обличчя напружене — і водночас виглядає виснаженим. Гіпертонус мʼязів + темні кола, припухлість, «сірий» колір шкіри. Мʼязи стиснуті, лімфа не рухається, обличчя не «дихає». Потрібно одночасно розслабити і оживити.", signs: ["Напружене обличчя, затиснута щелепа","Темні кола, припухлість під очима","«Втомлений» і «суворий» вигляд одночасно","Нормальна або комбінована шкіра"], plan: ["Розслаблення мʼязів + активація лімфотоку","Масаж шиї — зняти блок, щоб обличчя «задихало»","Тейпування: міжбрівʼя + зона під очима","Ранкова рутина: розслабити + освіжити за 10 хв"], tg: "muscular_tired" }
+  deform: { badge: "Деформаційний тип", title: "Твій тип старіння — <em>деформаційний</em>", summary: "Твоє обличчя змінюється через гравітацію та застій лімфи. Щільна шкіра поступово «сповзає» вниз, овал втрачає чіткість, зʼявляється друге підборіддя та набряки. Креми тут не допоможуть — потрібно працювати з глибокими тканинами, лімфовідтоком та мʼязовим каркасом.", signs: ["Нечіткий овал, «бульдожки», друге підборіддя","Набряклість обличчя, особливо зранку","Носогубні складки через «сповзання» тканин","Шкіра щільна, але обличчя виглядає важким"], plan: ["Лімфодренажний масаж — твій головний інструмент","Тейпування для підтримки овалу та контурів","Робота з шиєю — вона тримає все обличчя","Спеціальні техніки проти набряків щодня"] },
+  muscular: { badge: "Мʼязовий тип", title: "Твій тип старіння — <em>мʼязовий</em>", summary: "У тебе потужний мʼязовий каркас, але проблема саме в цьому — мʼязи перенапружені. Вони створюють заломи на чолі, «11» між бровами, затискають шию. Ботокс тимчасово їх розслабляє, але руйнує природну міміку.", signs: ["Глибокі заломи між бровами — «11»","Горизонтальні зморшки на чолі від напруги","Затиснута щелепа, напруга в шиї","Шкіра щільна, але обличчя виглядає напруженим"], plan: ["Розслаблення гіпертонусних мʼязів — ключ до результату","Масаж для зняття напруги з чола та міжбрівʼя","Тейпування для «перевиховання» мʼязів","Вправи для балансу — розслабити + тонізувати"] },
+  tired: { badge: "Втомлений тип", title: "Твій тип старіння — <em>втомлений</em>", summary: "Твоє обличчя виглядає втомленим навіть після відпочинку. Причина — порушений лімфовідтік, застій рідини та внутрішнє виснаження. Набряки, тьмяна шкіра, опущені кутики рота — це не «генетика», а сигнали тіла.", signs: ["Постійний «втомлений» вигляд без причини","Набряки під очима та на щоках","Тьмяний колір обличчя, відсутність сяйва","Опущені кутики рота — «сумний» вираз"], plan: ["Активація лімфовідтоку — перший і головний крок","Ранкова рутина проти набряків за 5 хвилин","Тейпування на ніч для свіжості зранку","Масаж для повернення здорового кольору шкіри"] },
+  wrinkle: { badge: "Дрібнозморшкуватий тип", title: "Твій тип старіння — <em>дрібнозморшкуватий</em>", summary: "У тебе тонка, делікатна шкіра, яка рано починає покриватися мережею зморшок. Проблема не у кремах — потрібно працювати з мʼязами та фасціями, щоб «розгладити» шкіру зсередини.", signs: ["«Гусячі лапки» навколо очей","Зморшки на чолі та навколо рота","Заломи від подушки довго не зникають","Шкіра тонка, суха, швидко «мнеться»"], plan: ["Глибока робота з фасціями для пружності","Тейпування для розгладження зморшок","Масаж зони очей — делікатно та ефективно","Техніки «наповнення» шкіри без інʼєкцій"] },
+  deform_muscular: { badge: "Деформаційно-мʼязовий тип", title: "Твій тип старіння — <em>деформаційно-мʼязовий</em>", summary: "У тебе поєднання двох процесів: гравітаційне опущення тканин + активна міміка, яка створює глибокі заломи. Шкіра щільна або комбінована. Це один із найпоширеніших змішаних типів.", signs: ["Поплив овал + носогубні складки","Зморшки на лобі, міжбрівка","Щільна або комбінована шкіра","Є і «сповзання», і напруга мʼязів"], plan: ["Поєднання лімфодренажу та розслаблення","Тейпування: овал + зона чола одночасно","Робота з шиєю для підтримки обличчя","Індивідуальна схема — спочатку овал, потім міміка"] },
+  deform_wrinkle: { badge: "Деформаційно-дрібнозморшкуватий тип", title: "Твій тип старіння — <em>деформаційно-дрібнозморшкуватий</em>", summary: "Тонка шкіра покривається мережею зморшок — і при цьому обличчя «сповзає». Вигляд «втомленої і вʼялої» шкіри. Потрібно працювати одночасно з пружністю шкіри та підтримкою контурів.", signs: ["Дрібна сітка зморшок + вʼялість шкіри","Поплив овал, носогубні складки","Тонка або зневоднена шкіра","Обличчя виглядає «вʼялим» і «обвислим»"], plan: ["Тейпування для овалу + зволоження фасцій","Масаж для повернення пружності","Лімфодренаж для зняття набряковості","Делікатні техніки — без розтягування шкіри"] },
+  deform_tired: { badge: "Деформаційно-втомлений тип", title: "Твій тип старіння — <em>деформаційно-втомлений</em>", summary: "Щільна шкіра, схильна до набряків — обличчя виглядає постійно втомленим. Темні кола + птоз і важкий овал. Основна робота — з лімфовідтоком та підтримкою контурів одночасно.", signs: ["Набряки + темні кола під очима","Носослізна борозна, втомлений погляд","Птоз — обличчя «сповзає»","Обличчя виглядає набряклим і втомленим"], plan: ["Потужний лімфодренаж — головний пріоритет","Тейпування овалу + зона під очима","Масаж для «полегшення» важкого обличчя","Ранкова антинабрякова рутина"] },
+  muscular_wrinkle: { badge: "Мʼязово-дрібнозморшкуватий тип", title: "Твій тип старіння — <em>мʼязово-дрібнозморшкуватий</em>", summary: "Активна міміка на тонкій шкірі — зморшки від напруги закріплюються дуже швидко. Ключ — розслабити мʼязи + відновити пружність шкіри, щоб заломи не фіксувалися.", signs: ["Активна міміка — лоб, міжбрівка, очі","Багато дрібних зморшок","Тонка або суха шкіра","Зморшки стають глибшими щороку"], plan: ["Розслаблення мʼязів — припинити «друкувати» заломи","Тейпування чола і зони очей на ніч","Фасціальний масаж для пружності","Комбінація: розслабити + наповнити"] },
+  muscular_tired: { badge: "Мʼязово-втомлений тип", title: "Твій тип старіння — <em>мʼязово-втомлений</em>", summary: "Обличчя напружене і виснажене. Гіпертонус мʼязів + темні кола. Мʼязи стиснуті, лімфа не рухається. Потрібно одночасно розслабити і оживити.", signs: ["Напружене обличчя, затиснута щелепа","Темні кола, припухлість","«Втомлений» і «суворий» вигляд","Нормальна або комбінована шкіра"], plan: ["Розслаблення мʼязів + активація лімфотоку","Масаж шиї — зняти блок","Тейпування: міжбрівʼя + зона під очима","Ранкова рутина: розслабити + освіжити"] }
 };
 
 const mixedMap = { 'deform+muscular':'deform_muscular','muscular+deform':'deform_muscular','deform+wrinkle':'deform_wrinkle','wrinkle+deform':'deform_wrinkle','deform+tired':'deform_tired','tired+deform':'deform_tired','muscular+wrinkle':'muscular_wrinkle','wrinkle+muscular':'muscular_wrinkle','muscular+tired':'muscular_tired','tired+muscular':'muscular_tired' };
 
-// ═══ STATE ═══
-let currentQ = 0, scores = { deform:0, muscular:0, tired:0, wrinkle:0 }, multiSelections = new Set();
+// ═══ LOGIC ═══
+let currentQ = 0, scores = { deform:0, muscular:0, tired:0, wrinkle:0 };
 const totalQ = questions.length;
 
 function startQuiz() {
@@ -514,15 +340,11 @@ function startQuiz() {
 
 function renderQuestion(idx) {
   const q = questions[idx]; const area = document.getElementById('questionArea');
-  multiSelections = new Set();
-  const multiTag = q.multi ? `<div class="multi-hint">☑ Можна обрати кілька</div>` : '';
-  const nextBtn = q.multi ? `<button class="next-btn" id="nextBtn" onclick="submitMulti(${idx})" disabled>Далі →</button>` : '';
   area.innerHTML = `<div class="slide-enter">
     <div class="question-text">${q.text}</div>
     ${q.sub ? `<div class="question-sub">${q.sub}</div>` : '<div style="margin-bottom:20px"></div>'}
-    ${multiTag}
-    <ul class="options-list">${q.options.map((o, i) => `<li><button class="option-btn" data-idx="${i}" onclick="${q.multi ? `toggleOption(${idx},${i})` : `selectOption(${idx},${i})`}"><span class="option-icon">${o.icon}</span><span class="option-label">${o.label}</span></button></li>`).join('')}</ul>
-    ${nextBtn}</div>`;
+    <ul class="options-list">${q.options.map((o, i) => `<li><button class="option-btn" data-idx="${i}" onclick="selectOption(${idx},${i})"><span class="option-icon">${o.icon}</span><span class="option-label">${o.label}</span></button></li>`).join('')}</ul>
+    </div>`;
   const step = idx + 1, pct = Math.round((step / totalQ) * 100);
   document.getElementById('stepLabel').textContent = `0${step} / 0${totalQ}`;
   document.getElementById('pctLabel').textContent = `${pct}%`;
@@ -536,21 +358,6 @@ function selectOption(qIdx, optIdx) {
   btns[optIdx].classList.add('selected');
   for (const [k, v] of Object.entries(opt.scores)) scores[k] += v;
   setTimeout(() => { currentQ++; currentQ < totalQ ? renderQuestion(currentQ) : showLoading(); }, 400);
-}
-
-function toggleOption(qIdx, optIdx) {
-  const btn = document.querySelectorAll('.option-btn')[optIdx];
-  if (multiSelections.has(optIdx)) { multiSelections.delete(optIdx); btn.classList.remove('selected'); }
-  else { multiSelections.add(optIdx); btn.classList.add('selected'); }
-  const nb = document.getElementById('nextBtn');
-  if (multiSelections.size > 0) { nb.classList.add('visible'); nb.disabled = false; } else { nb.disabled = true; }
-}
-
-function submitMulti(qIdx) {
-  const q = questions[qIdx];
-  document.querySelectorAll('.option-btn').forEach(b => b.style.pointerEvents = 'none');
-  multiSelections.forEach(i => { for (const [k, v] of Object.entries(q.options[i].scores)) scores[k] += v; });
-  setTimeout(() => { currentQ++; currentQ < totalQ ? renderQuestion(currentQ) : showLoading(); }, 300);
 }
 
 function getResultType() {
@@ -587,11 +394,25 @@ function showResult() {
     </div>`;
 }
 
-// ═══ POPUP ═══
+// ═══ INTL-TEL-INPUT INIT (GEO IP & VALIDATION) ═══
+const phoneInput = document.querySelector("#popupPhone");
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "auto",
+  excludeCountries: ["ru", "by"], // Виключено РФ та РБ
+  geoIpLookup: function(callback) {
+    fetch("https://get.geojs.io/v1/ip/country.json")
+      .then(res => res.json())
+      .then(data => callback(data.country.toLowerCase()))
+      .catch(() => callback("ua"));
+  },
+  utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+});
+
+// ═══ POPUP & FORM LOGIC ═══
 function openPopup() {
   document.getElementById('popupOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
-  setTimeout(() => document.getElementById('popupName').focus(), 400);
+  if(typeof fbq === 'function') fbq('track', 'InitiateCheckout'); // PIXEL EVENT
 }
 function closePopup() {
   document.getElementById('popupOverlay').classList.remove('open');
@@ -599,33 +420,74 @@ function closePopup() {
 }
 
 function submitPopup() {
-  const name = document.getElementById('popupName').value.trim();
-  const phone = document.getElementById('popupPhone').value.trim();
-  const tg = document.getElementById('popupTg').value.trim();
-  const email = document.getElementById('popupEmail').value.trim();
+  const nameInput = document.getElementById('popupName');
+  const tgInput = document.getElementById('popupTg');
+  const emailInput = document.getElementById('popupEmail');
+  const btn = document.getElementById('popupSubmitBtn');
 
-  // Reset errors
-  ['popupName','popupPhone','popupTg','popupEmail'].forEach(id => document.getElementById(id).classList.remove('error'));
-
+  const name = nameInput.value.trim();
+  const phone = iti.getNumber(); // Беремо номер у міжнародному форматі
+  
+  // Скидання помилок
+  nameInput.classList.remove('error');
+  phoneInput.classList.remove('error');
+  
   let hasError = false;
-  if (!name) { document.getElementById('popupName').classList.add('error'); hasError = true; }
-  if (!phone) { document.getElementById('popupPhone').classList.add('error'); hasError = true; }
+
+  // Валідація імені (заборона цифр)
+  const nameRegex = /^[^0-9]+$/;
+  if (!name || !nameRegex.test(name)) { 
+    nameInput.classList.add('error'); 
+    hasError = true; 
+  }
+  
+  // Валідація телефону (через бібліотеку iti)
+  if (!phone || !iti.isValidNumber()) { 
+    phoneInput.classList.add('error'); 
+    hasError = true; 
+  }
+
   if (hasError) return;
 
-  const btn = document.getElementById('popupSubmitBtn');
-  btn.disabled = true; btn.textContent = 'Відправляю...';
+  // Блокуємо кнопку
+  btn.disabled = true; 
+  btn.textContent = 'Відправляю...';
 
-  const typeKey = getResultType(), r = resultTypes[typeKey];
+  const typeKey = getResultType();
+  const r = resultTypes[typeKey];
 
-  // TODO: Подключить Google Sheets / SendPulse
-  console.log('Quiz lead:', { name, phone, telegram: tg, email, type: r.badge, typeKey });
+  // Формуємо дані для відправки
+  const formData = {
+    date: new Date().toLocaleString("uk-UA", {timeZone: "Europe/Kyiv"}),
+    name: name,
+    phone: phone,
+    telegram: tgInput.value.trim(),
+    email: emailInput.value.trim(),
+    result: r.badge,
+    utm_source: utmData.source,
+    utm_medium: utmData.medium,
+    utm_campaign: utmData.campaign,
+    utm_content: utmData.content,
+    utm_term: utmData.term
+  };
 
-  setTimeout(() => {
-    document.getElementById('popupForm').classList.add('hidden');
-    document.getElementById('popupSuccess').classList.remove('hidden');
-    document.getElementById('successName').textContent = name;
-    document.getElementById('successType').textContent = r.badge;
-  }, 600);
+  // Відправка на Google Script
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    body: JSON.stringify(formData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if(typeof fbq === 'function') fbq('track', 'Lead'); // PIXEL EVENT
+    // REDIRECT TO BOT
+    window.location.href = TG_BOT_URL;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Сталася помилка при відправці. Спробуйте ще раз.');
+    btn.disabled = false;
+    btn.textContent = 'Отримати розбір';
+  });
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
