@@ -233,8 +233,9 @@ body::before { content: ''; position: fixed; top: -30%; right: -20%; width: 80%;
         </div>
         <div class="popup-row">
           <div class="popup-field">
-            <label>Telegram (за бажанням)</label>
+            <label>Telegram</label>
             <input type="text" id="popupTg" placeholder="@nickname">
+            <div class="error-text">Введіть ваш Telegram</div>
           </div>
           <div class="popup-field">
             <label>Email (за бажанням)</label>
@@ -422,9 +423,11 @@ function submitPopup() {
 
   const name = nameInput.value.trim();
   const phone = iti.getNumber();
+  const tgValue = tgInput.value.trim();
   
   nameInput.classList.remove('error');
   phoneInput.classList.remove('error');
+  tgInput.classList.remove('error');
   
   let hasError = false;
 
@@ -437,6 +440,11 @@ function submitPopup() {
   if (!phone || !iti.isValidNumber()) { 
     phoneInput.classList.add('error'); 
     hasError = true; 
+  }
+  
+  if (!tgValue) {
+    tgInput.classList.add('error');
+    hasError = true;
   }
 
   if (hasError) return;
@@ -451,7 +459,7 @@ function submitPopup() {
     date: new Date().toLocaleString("uk-UA", {timeZone: "Europe/Kyiv"}),
     name: name,
     phone: phone,
-    telegram: tgInput.value.trim(),
+    telegram: tgValue,
     email: emailInput.value.trim(),
     result: r.badge,
     utm_source: utmData.source,
