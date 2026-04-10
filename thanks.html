@@ -143,19 +143,35 @@ body::before {
     <p class="note">Натисни на кнопку вище, щоб не загубити результат ☝️</p>
   </div>
 
-  <!-- СКРИПТ ДЛЯ ПЕРЕДАЧІ РЕЗУЛЬТАТУ В БОТ -->
+  <!-- СКРИПТ ДЛЯ ПРЯМИХ ПОСИЛАНЬ НА ЛАНЦЮЖКИ SENDPULSE -->
   <script>
-    // 1. Беремо результат з посилання (наприклад: thanks.html?result=deform)
-    const urlParams = new URLSearchParams(window.location.search);
-    const quizResult = urlParams.get('result') || 'default';
-    
-    // 2. ВСТАВ ЮЗЕРНЕЙМ СВОГО БОТА ТУТ (тільки назва, без @ і без https://t.me/)
-    // Наприклад, якщо посилання t.me/svitlanatape_bot, то пиши: "svitlanatape_bot"
-    const botUsername = "svitlana_tape_bot"; 
-    
-    // 3. Генеруємо діплінк і підставляємо в кнопку
-    const tgLink = `https://t.me/${botUsername}?start=${quizResult}`;
-    document.getElementById('tgBotLink').href = tgLink;
+    document.addEventListener("DOMContentLoaded", function() {
+      // 1. Беремо результат з посилання (наприклад: thanks.html?result=deform_muscular)
+      const urlParams = new URLSearchParams(window.location.search);
+      const quizResult = urlParams.get('result') || 'deform'; // дефолтний, щоб уникнути помилок
+      
+      // 2. Словник прямих посилань на створені ланцюжки у SendPulse
+      const sendPulseLinks = {
+        "deform": "https://t.me/svitlana_tape_bot?start=69d7b3dc9b7e6328410bb675",
+        "muscular": "https://t.me/svitlana_tape_bot?start=69d8c2a6829a7f27b906d8db",
+        "tired": "https://t.me/svitlana_tape_bot?start=69d8c442d5120d84200a59f8",
+        "wrinkle": "https://t.me/svitlana_tape_bot?start=69d8c58ec521871ac6090148",
+        "deform_muscular": "https://t.me/svitlana_tape_bot?start=69d8c868ace225ad470df2eb",
+        "deform_wrinkle": "https://t.me/svitlana_tape_bot?start=69d8cbe597b75fd640030c0b",
+        "deform_tired": "https://t.me/svitlana_tape_bot?start=69d8cd1523ddba14800f899c",
+        "muscular_wrinkle": "https://t.me/svitlana_tape_bot?start=69d8d378d3c72eb5b20fdcda",
+        "muscular_tired": "https://t.me/svitlana_tape_bot?start=69d8d4d0068cf478ea0aeed4"
+      };
+      
+      // 3. Знаходимо потрібне посилання. Якщо ключ не знайдено - віддаємо деформаційний як запасний
+      const tgLink = sendPulseLinks[quizResult] || sendPulseLinks["deform"];
+      
+      // 4. Підставляємо готове посилання в кнопку
+      const btn = document.getElementById('tgBotLink');
+      if (btn) {
+        btn.href = tgLink;
+      }
+    });
   </script>
 
 </body>
